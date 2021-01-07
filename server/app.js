@@ -1,9 +1,12 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const weather = require('./controllers/weather');
+const weather = require('./weather');
 var cors = require('cors');
+
+require('dotenv').config()
 app.use(cors());
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

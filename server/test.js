@@ -1,5 +1,6 @@
 const assert = require('assert');
-const weather = require('controllers/weather');
+const weather = require('./weather');
+const axios = require('axios');
 
 describe('Array', function() {
   describe('#indexOf()', function() {
@@ -8,8 +9,9 @@ describe('Array', function() {
     });
   });
   describe('weather res'), function() {
-      it('should gather the correct weather response', function() {
-          
+      it('should gather the correct weather response', async() {
+          const res = weather.requestWeatherData(12,12,'standard') => P
+
       })
   }
 });

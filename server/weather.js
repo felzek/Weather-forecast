@@ -3,6 +3,7 @@ dotenv.config();
 const axios = require('axios');
 const moment = require('moment');
 
+require('dotenv').config();
 
 
 module.exports = {
@@ -31,8 +32,9 @@ module.exports = {
     async requestWeatherData(lat,lon,tempUnit)
     {
         return new Promise(async (resolve,reject) => {
-        const apikey = '8b925e142fc04aaf94e123194b9ee7a8';
-        const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apikey}&unit=${tempUnit}`
+        const apikey = process.env.API_KEY;
+        console.log('ef',apikey);
+        const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apikey}&units=${tempUnit}`
         let weatherRes;
         try{ 
             weatherRes = await axios.get(requestUrl);
